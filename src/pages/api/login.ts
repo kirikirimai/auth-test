@@ -19,7 +19,7 @@ const Login = async (req: NextApiRequest, res: NextApiResponse) => {
                 const token = jwt.sign({
                     username: saveUser.username,
                     email: email,
-                },process.env.NEXT_PUBLIC_SECRET_KEY , { expiresIn: "2m" })
+                }, process.env.NEXT_PUBLIC_SECRET_KEY as string , { expiresIn: "2m" })
              
                 return res.status(200).json({ message: "ログイン成功", token: token })
             } else {

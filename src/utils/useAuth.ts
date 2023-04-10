@@ -1,11 +1,11 @@
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
-import jwt from 'jsonwebtoken'
+import jwt, { JwtPayload } from 'jsonwebtoken'
 import { logindUserType } from './types'
 
 
 const useAuth = () => {
-    const [loginUser, setLoginUser] = useState<logindUserType>({})
+    const [loginUser, setLoginUser] = useState<logindUserType>({ username: '', email: '' })
     const router = useRouter()
 
     useEffect(() => {
@@ -15,9 +15,9 @@ const useAuth = () => {
         }
 
        try {
-        const decoded:logindUserType = jwt.verify(token, process.env.NEXT_PUBLIC_SECRET_KEY)
+        const decoded = jwt.verify(token!, process.env.NEXT_PUBLIC_SECRET_KEY as string)
 
-        setLoginUser(decoded)
+        setLoginUser(decoded as logindUserType)
 
        } catch (error) {
         router.push('/login')        

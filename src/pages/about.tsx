@@ -1,13 +1,14 @@
-import { SavedUserDataType, UserDataType } from '@/utils/types';
+import { SavedUserDataType, UserDataType, logindUserType } from '@/utils/types';
 import useAuth from '@/utils/useAuth'
 import React from 'react'
 
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
+import { JwtPayload } from 'jsonwebtoken';
 
 
 const About = () => {
-    const user = useAuth();
+    const user:logindUserType = useAuth();
 
     return (
         <>
