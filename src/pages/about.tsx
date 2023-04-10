@@ -4,7 +4,6 @@ import React from 'react'
 
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { JwtPayload } from 'jsonwebtoken';
 
 
 const About = () => {
